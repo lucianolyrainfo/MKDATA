@@ -1,0 +1,3 @@
+O banco de dados deve ficar na subpasta "BD" no diretório onde o executável será copiado.
+
+O arquivo "Config.ini" precisa estar no mesmo diretório do executável.
