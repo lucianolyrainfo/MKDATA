@@ -5,7 +5,7 @@ interface
 uses
   System.SysUtils, System.Classes, FireDAC.Stan.Intf, FireDAC.Stan.Option,
   FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf, FireDAC.Stan.Def,Xml.xmldom, Xml.XMLIntf, Xml.XMLDoc, Xml.Win.msxmldom,
-  FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.Phys.FB,
+  FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.Phys.FB, IniFiles,
   FireDAC.Phys.FBDef, FireDAC.VCLUI.Wait, Data.DB, FireDAC.Comp.Client,
   FireDAC.Stan.Param, FireDAC.DatS, FireDAC.DApt.Intf, FireDAC.DApt,
   FireDAC.Comp.DataSet, REST.Types, Data.Bind.Components, Data.Bind.ObjectScope,
@@ -78,14 +78,23 @@ var
 
 implementation
 
+uses
+  Vcl.Forms, Vcl.Dialogs;
+
 {%CLASSGROUP 'Vcl.Controls.TControl'}
 
 {$R *.dfm}
 
 procedure TDM.DataModuleCreate(Sender: TObject);
+var Ini:Tinifile;
+caminho:String;
 begin
-DM.FDConn.Open();
-DM.FDTelefonesNUMERO.EditMask:= '(99)99999-9999;0';
+Ini:= TIniFile.Create(GetCurrentDir+'\Config.ini');
+Caminho:= Ini.ReadString('BD','Caminho','');
+FDConn.Params.Database:= Caminho;
+FDConn.Open();
+FDTelefonesNUMERO.EditMask:= '(99)99999-9999;0';
+Ini.Free;
 end;
 
 procedure TDM.FDClienteAfterInsert(DataSet: TDataSet);

@@ -17,7 +17,7 @@ object FPrincipal: TFPrincipal
   PixelsPerInch = 96
   TextHeight = 13
   object MainMenu1: TMainMenu
-    Left = 24
+    Left = 32
     Top = 16
     object Cadastros1: TMenuItem
       Caption = 'Cadastros'

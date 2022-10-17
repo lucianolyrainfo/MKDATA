@@ -7,11 +7,7 @@ object DM: TDM
     Params.Strings = (
       'User_Name=sysdba'
       'Password=masterkey'
-      
-        'Database=C:\Users\infor\Desktop\Projetos Diversos\MKDATA\MKDATA\' +
-        'Win32\Debug\BD\BD.FDB'
       'DriverID=FB')
-    Connected = True
     LoginPrompt = False
     Left = 24
     Top = 16
