@@ -1,3 +1,1 @@
-O banco de dados deve ficar na subpasta "BD" no diretório onde o executável será copiado.
-
-O arquivo "Config.ini" precisa estar no mesmo diretório do executável.
+O arquivo "Config.ini" precisa estar no mesmo diretório do executável. Dentro do "Config.ini", na linha "Caminho", deve-se informar o caminho absoluto do banco de dados.
